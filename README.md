@@ -1,1 +1,1 @@
-# Praktika_Django
+nya nya nyaaa
