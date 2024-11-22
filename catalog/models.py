@@ -1,8 +1,6 @@
 from django.db import models
 from django.urls import reverse
 import uuid
-from django.db.models import UniqueConstraint
-from django.db.models.functions import Lower
 from django.contrib.auth.models import User
 from datetime import date
 
@@ -32,8 +30,6 @@ class Language(models.Model):
     def __str__(self):
         """String for representing the Model object (in Admin site etc.)"""
         return self.name
-
-
 
 class Author(models.Model):
     """
