@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Author, Genre, Book, BookInstance, Language
+from .models import Author, Genre, Book, BookInstance, Language, Publisher
 
 admin.site.register(Genre)
 admin.site.register(Language)
@@ -36,3 +36,6 @@ class BookInstanceAdmin(admin.ModelAdmin):
         }),
     )
 
+@admin.register(Publisher)
+class PublisherAdmin(admin.ModelAdmin):
+    list_display = ('name','city')
