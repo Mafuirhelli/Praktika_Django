@@ -8,6 +8,7 @@
     </div>
     <div style="width: 50%">
       <p><strong>Author:</strong> <a href="{% url 'author-detail' book.author.pk %}">{{ book.author }}</a></p>
+      <p><strong>Publisher:</strong> <a href="{% url 'publisher-detail' book.publisher.pk %}">{{ book.publisher }}</a></p>
       <p><strong>Summary:</strong> {{ book.summary }}</p>
       <p><strong>ISBN:</strong> {{ book.isbn }}</p>
       <p><strong>Language:</strong> {{ book.language }}</p>

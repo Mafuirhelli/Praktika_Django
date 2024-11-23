@@ -36,6 +36,10 @@ class BookInstanceAdmin(admin.ModelAdmin):
         }),
     )
 
-@admin.register(Publisher)
+
 class PublisherAdmin(admin.ModelAdmin):
     list_display = ('name','city')
+    fields = ['name', 'city']
+    inlines = [BooksInline]
+
+admin.site.register(Publisher, PublisherAdmin)

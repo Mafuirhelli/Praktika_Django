@@ -126,3 +126,15 @@ class BookInstance(models.Model):
 class Publisher(models.Model):
     name = models.CharField(max_length=200)
     city = models.CharField(max_length=175)
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular author instance.
+        """
+        return reverse('publisher-detail', args=[str(self.id)])
+
+
+    def __str__(self):
+        """
+        String for representing the Model object.
+        """
+        return '%s, %s' % (self.name, self.city)

@@ -38,13 +38,6 @@ class BookListView(generic.ListView):
 class BookDetailView(generic.DetailView):
     model = Book
 
-class AuthorListView(generic.ListView):
-    model = Author
-    paginate_by = 10
-
-class AuthorDetailView(generic.DetailView):
-    model = Author
-
 class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
     model = BookInstance
     template_name ='catalog/bookinstance_list_borrowed_user.html'
@@ -104,13 +97,39 @@ class AuthorDelete(DeleteView):
     model = Author
     success_url = reverse_lazy('authors')
 
+class AuthorListView(generic.ListView):
+    model = Author
+    paginate_by = 10
+
+class AuthorDetailView(generic.DetailView):
+    model = Author
+
+class PublisherCreate(CreateView):
+    model = Publisher
+    fields = '__all__'
+
+class PublisherUpdate(UpdateView):
+    model = Publisher
+    fields = ['name','city']
+
+class PublisherDelete(DeleteView):
+    model = Publisher
+    success_url = reverse_lazy('publishers')
+
+class PublisherListView(generic.ListView):
+    model = Publisher
+    paginate_by = 10
+
+class PublisherDetailView(generic.DetailView):
+    model = Publisher
+
 class BookCreate(CreateView):
     model = Book
     fields = '__all__'
 
 class BookUpdate(UpdateView):
     model = Book
-    fields = ['title','author','summary','genre', 'cover']
+    fields = ['title','author','publisher', 'summary','genre', 'cover']
 
 class BookDelete(DeleteView):
     model = Author
